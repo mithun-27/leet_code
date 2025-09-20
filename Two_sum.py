@@ -36,3 +36,16 @@ j = Solution()
 print(j.two_sum([2, 7, 11, 15], 9))
 print(j.two_sum([9, 3, 3, 3], 6))
 print(j.two_sum([6, 0, 4], 6))
+
+"""walkthrough:
+1. We define a class `Solution` with a method `two_sum` that takes a list of integers `nums` and an integer `target`.
+2. We create an empty dictionary `num_to_index` to store the numbers we have seen
+   and their corresponding indices.
+3. We iterate through the list `nums` using `enumerate` to get both the index `i` and the number `num`.
+4. For each number, we calculate its complement (the number that, when added to `
+num`, equals `target`).
+5. We check if the complement is already in the `num_to_index` dictionary. If it is, we return the indices of the complement and the current number.
+6. If the complement is not found, we add the current number and its index to the
+   `num_to_index` dictionary.
+7. If no solution is found by the end of the loop, the function will implicitly return `None`.
+   """

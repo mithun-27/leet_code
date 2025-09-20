@@ -57,3 +57,53 @@ class Solution:
             else:
                 total += values[s[i]]
         return total
+
+"""Steps Explained:
+1. We define a dictionary `values` that maps each Roman numeral character to its corresponding integer value.
+2. We initialize a variable `total` to 0, which will hold the final integer value.
+3. We iterate through each character in the string `s` using a for loop.
+4. For each character, we check if it is followed by a character with a higher value. If it is, we subtract its value from `total` (this handles the subtraction cases like IV, IX, etc.). Otherwise, we add its value to `total`.
+5. Finally, we return the computed `total`.
+
+example walkthrough: "LVIII"
+
+Roman numeral = 58.
+
+Start: total = 0
+
+L (50), next = V (5) → 50 > 5 → add → total = 50
+
+V (5), next = I (1) → 5 > 1 → add → total = 55
+
+I (1), next = I (1) → not smaller → add → total = 56
+
+I (1), next = I (1) → not smaller → add → total = 57
+
+I (1), last element → add → total = 58
+  
+Final Answer = 58
+
+
+
+
+2.example walkthrough: "MCMXCIV"
+
+Roman numeral = 994
+
+Start: total = 0
+
+C (100), next = M (1000) → 100 < 1000 → subtract → total = -100
+
+M (1000), next = X (10) → 1000 > 10 → add → total = 900
+
+X (10), next = C (100) → 10 < 100 → subtract → total = 890
+
+C (100), next = I (1) → 100 > 1 → add → total = 990
+
+I (1), next = V (5) → 1 < 5 → subtract → total = 989
+
+V (5), last element → add → total = 994
+
+Final Answer = 994
+
+"""

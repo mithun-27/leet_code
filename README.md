@@ -36,7 +36,8 @@ I started this journey to strengthen my **Data Structures & Algorithms (DSA)** a
 ## 📬 Connect with Me
 - 📧 Email: kvl202014@gmail.com  
 - 🔗 LinkedIn: [Mithun S](https://www.linkedin.com/in/mithun-s-732939280)  
-- 💻 GitHub: [mithun-27](https://github.com/mithun-27)  
+- 💻 GitHub: [mithun-27](https://github.com/mithun-27)
+- 📖 leetcode: [mithun-27](https://leetcode.com/u/mithun_27/) 
 ---
 
 ⭐ If you’re also on a LeetCode journey, feel free to follow along or share tips with me!  

@@ -43,4 +43,30 @@ Explanation: After the second day, full lakes are  [1,2]. We have to dry one lak
 After that, it will rain over lakes [1,2]. It's easy to prove that no matter which lake you choose to dry in the 3rd day, the other one will flood."""
 
 #answer
+import bisect
 
+class Solution:
+    def avoidFlood(self, rains):
+        n = len(rains)
+        res = [1] * n
+        last_rain = {}          
+        dry_days = []           
+
+        for day in range(n):
+            r = rains[day]
+            if r > 0:
+                res[day] = -1
+                if r in last_rain:
+                    prev_day = last_rain[r]
+                   
+                    idx = bisect.bisect_right(dry_days, prev_day)
+                    if idx == len(dry_days):
+                        return []
+                    dry_index = dry_days.pop(idx)
+                    res[dry_index] = r
+                last_rain[r] = day
+            else:
+                r
+                bisect.insort(dry_days, day)
+
+        return res

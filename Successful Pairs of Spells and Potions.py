@@ -48,3 +48,21 @@ class Solution(object):
         
         return ans    
 
+#example
+solution = Solution()
+print(solution.successfulPairs([5,1,3], [1,2,3,4,5], 7))  # Output: [4,0,3]
+print(solution.successfulPairs([3,1,2], [8,5,8], 16))  # Output: [2,0,2]
+print(solution.successfulPairs([10,20,30], [1,2,3,4,5], 100))  # Output: [0,0,1]
+
+
+"""walkthrough
+1. Import the bisect_left function from the bisect module to perform binary search.
+2. Define the Solution class with the successfulPairs method that takes spells, potions, and success as input.
+3. Sort the potions array to enable binary search.
+4. Initialize an empty list ans to store the results.
+5. Iterate through each spell in the spells array:
+   a. Calculate the minimum potion strength required to form a successful pair with the current spell using the formula (success + spell - 1) // spell. This ensures we round up to the nearest integer.
+   b. Use bisect_left to find the index of the first potion in the sorted potions array that is greater than or equal to min_potion.
+   c. The number of successful pairs for the current spell is the total number of potions minus the index found in step 5b. Append this value to ans.
+6. Return the ans list containing the number of successful pairs for each spell.
+7. Test the implementation with example cases to ensure correctness."""

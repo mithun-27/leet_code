@@ -70,3 +70,37 @@ class Solution:
                 bisect.insort(dry_days, day)
 
         return res
+
+#example
+solution = Solution()
+print(solution.avoidFlood([1,2,3,4]))  # Output: [-1,-1,-1,-1]
+print(solution.avoidFlood([1,2,0,0,2,1]))  # Output: [-1,-1,2,1,-1,-1]
+print(solution.avoidFlood([1,2,0,1,2]))  # Output: []
+
+
+"""walkthrough:
+1. Import the bisect module to use binary search functions.
+2. Define the Solution class with the avoidFlood method that takes the rains array as input.
+3. Initialize variables:
+   - n: Length of the rains array.
+   - res: Result array initialized with 1s.
+   - last_rain: Dictionary to track the last day each lake was filled.
+   - dry_days: List to keep track of available dry days.
+4. Iterate through each day in the rains array:
+   - If it rains (r > 0):
+     - Set res[day] to -1.
+        - If the lake has been filled before (exists in last_rain):
+        - Find the previous day it was filled.
+        - Use bisect to find the first dry day after the previous fill day.
+        - If no such dry day exists, return an empty array (flood is unavoidable).
+        - Otherwise, pop that dry day from dry_days and set res[dry_index] to the lake number.
+        - Update last_rain with the current day for the lake.
+    - If it doesn't rain (r == 0):
+        - Add the current day to dry_days.
+        - Set res[day] to 1.
+        - Use bisect.insort to maintain sorted order of dry_days.
+5. Return the result array res after processing all days.
+This approach ensures that we efficiently manage the drying of lakes to prevent floods while adhering to the constraints of the problem.
+6. For each of the four possible directions (up, down, left, right), calculate the new cell coordinates (nx, ny). If the new cell is within bounds and has not been visited, mark it as visited and push it onto the heap with its elevation.
+7. The process continues until we reach the target cell, ensuring that we always expand the least elevated cell first, which guarantees that we find the minimum time required to reach the destination.
+"""

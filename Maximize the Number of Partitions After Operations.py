@@ -102,3 +102,18 @@ s = Solution()
 print(s.maxPartitionsAfterOperations("accca", 2)) # Output: 3
 print(s.maxPartitionsAfterOperations("aabaab", 3)) # Output: 1
 print(s.maxPartitionsAfterOperations("xxyz", 1)) # Output: 4
+
+"""walkthrough
+1. The function maxPartitionsAfterOperations is defined within the Solution class.
+2. It takes two parameters: s (a string) and k (an integer).
+3. The length of the string s is stored in the variable n.
+4. A list of bit masks is created, where each character in s is represented as a bit in an integer.
+5. A helper function build_prefix_info is defined to calculate the number of partitions and the bit masks for prefixes of the string.
+6. The function build_prefix_info is called twice: once for the original bit masks and once for the reversed bit masks.
+7. The main loop iterates through each index of the string s.
+8. For each index, it calculates the number of partitions and bit masks for the left and right segments of the string.
+9. It combines the left and right bit masks and counts the number of distinct characters.
+10. Depending on the number of distinct characters, it calculates the total number of partitions possible after changing one character.
+11. It updates the result if the calculated total is greater than the current maximum.
+12. Finally, it returns the maximum number of partitions possible after the operations.
+"""

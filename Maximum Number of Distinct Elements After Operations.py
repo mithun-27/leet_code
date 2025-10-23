@@ -59,5 +59,4 @@ print(s.maxDistinctElements([1,1,1,1,1],0))  #Output: 1
     - If the current occupied value is less than x + k, it means we can adjust x to create a new distinct element.
     - Update occupied to be the maximum of occupied + 1 (to ensure distinctness) and x - k (the lowest possible value after adjustment).
     - Increment the ans counter.
-4. Return the total count of distinct elements stored in ans.
-"""
+4. Return the total count of distinct elements stored in ans."""

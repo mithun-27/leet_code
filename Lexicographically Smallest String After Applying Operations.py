@@ -81,3 +81,9 @@ class Solution:
 
         return best
     
+#example usage
+s = Solution()
+print(s.findLexSmallestString("5525", 9, 2))  #Output: "2050"
+print(s.findLexSmallestString("74", 5, 1))    #Output: "24"
+print(s.findLexSmallestString("0011", 4, 2))  #Output: "0011"
+

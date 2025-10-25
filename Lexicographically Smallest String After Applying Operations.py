@@ -87,3 +87,15 @@ print(s.findLexSmallestString("5525", 9, 2))  #Output: "2050"
 print(s.findLexSmallestString("74", 5, 1))    #Output: "24"
 print(s.findLexSmallestString("0011", 4, 2))  #Output: "0011"
 
+"""walkthrough
+1. Start with the initial string "5525".
+2. Apply the rotate operation to get "2555".
+3. Apply the add operation to get "2454".
+4. Apply the add operation again to get "2353".
+5. Apply the rotate operation to get "5323".
+6. Apply the add operation to get "5222".
+7. Apply the add operation to get "5121".
+8. Apply the rotate operation to get "2151".
+9. Apply the add operation to get "2050".
+10. The final result is "2050", which is the lexicographically smallest string obtainable.
+"""

@@ -104,3 +104,16 @@ class Solution:
 s=solution = Solution()
 print(s.maxFrequency([1,4,5], 1, 2))  # Output: 2
 print(s.maxFrequency([5,11,20,20], 5, 1))  # Output: 2
+
+"""walkthrough
+1. We define a class Solution with a method maxFrequency that takes an integer array nums, and two integers k and numOperations as input.
+2. We use a Counter to count the frequency of each number in nums.
+3. We create a list of events to represent the ranges of values that can reach each number in nums by adding or subtracting up to k.
+4. We sort the events and unique values in nums.
+5. We iterate through each unique value as a target and use a sweep line technique to count
+   how many numbers can reach that target.
+6. For each target, we calculate the total frequency by adding the already equal numbers and the minimum of
+   the numbers that can change and numOperations.
+7. We also handle the case for positions that are not in the original nums array.
+8. Finally, we return the maximum frequency found after processing all targets and positions.
+"""

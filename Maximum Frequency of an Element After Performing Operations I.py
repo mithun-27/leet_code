@@ -100,3 +100,7 @@ class Solution:
         
         return max_freq
     
+#answer
+s=solution = Solution()
+print(s.maxFrequency([1,4,5], 1, 2))  # Output: 2
+print(s.maxFrequency([5,11,20,20], 5, 1))  # Output: 2

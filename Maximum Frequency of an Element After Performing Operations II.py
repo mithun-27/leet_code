@@ -80,3 +80,13 @@ class Solution:
 s = Solution()
 print(s.maxFrequency([1,4,5], 1, 2))  # Output: 2
 print(s.maxFrequency([5,11,20,20], 5, 1))  # Output: 2
+
+"""walkthrough
+1. We define a class Solution with a method maxFrequency that takes an integer array nums, and two integers k and numOperations as input.
+2. We sort the nums array to facilitate frequency calculations.
+3. We define a helper method maxFrequencyOfArrayVal that calculates the maximum frequency of any element in nums after performing the operations.
+4. In maxFrequencyOfArrayVal, we use a Counter to count the frequency of each number in nums.
+5. We iterate through each unique value in nums and use binary search (bisect_left and bisect_right) to find the range of elements that can be changed to the current value within the allowed range [-k, k].
+6. We calculate the maximum frequency possible for each value and update the overall maximum frequency.
+7. In the main maxFrequency method, we also consider the case where we can change elements to values other than those in nums, by checking the range of values that can be achieved with the given k.
+8. Finally, we return the maximum frequency obtained from both scenarios."""

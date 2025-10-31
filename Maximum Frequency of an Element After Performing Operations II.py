@@ -34,6 +34,9 @@ Adding 0 to nums[1]."""
 
 #answer
 
+from bisect import bisect_right
+
+
 class Solution:
     
     def maxFrequency(self, nums: List[int], k: int, numOperations: int) -> int:
@@ -73,4 +76,7 @@ class Solution:
 
         return maxFreq
 
-        
+#example usage
+s = Solution()
+print(s.maxFrequency([1,4,5], 1, 2))  # Output: 2
+print(s.maxFrequency([5,11,20,20], 5, 1))  # Output: 2

@@ -53,3 +53,10 @@ class Solution:
             if is_balanced(x):
                 return x
             x += 1
+
+
+#example usage
+solution = Solution()
+print(solution.nextBeautifulNumber(1))     # Output: 22
+print(solution.nextBeautifulNumber(1000))  # Output: 1333
+print(solution.nextBeautifulNumber(3000))  # Output: 3133

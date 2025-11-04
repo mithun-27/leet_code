@@ -60,3 +60,11 @@ solution = Solution()
 print(solution.nextBeautifulNumber(1))     # Output: 22
 print(solution.nextBeautifulNumber(1000))  # Output: 1333
 print(solution.nextBeautifulNumber(3000))  # Output: 3133
+
+
+"""walkthrough
+1. Define a helper function is_balanced(x) that checks if a number x is numerically balanced.
+2. In is_balanced, count the occurrences of each digit in x using an array cnt.
+3. Check if the count of each digit matches its value (e.g., digit 2 appears 2 times).
+4. In the main function, incrementally search for the next beautiful number by checking each subsequent integer.
+"""

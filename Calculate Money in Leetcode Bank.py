@@ -22,9 +22,17 @@ Input: n = 20
 Output: 96
 Explanation: After the 20th day, the total is (1 + 2 + 3 + 4 + 5 + 6 + 7) + (2 + 3 + 4 + 5 + 6 + 7 + 8) + (3 + 4 + 5 + 6 + 7 + 8) = 96."""
 
+
+#answer
 class Solution:
     def totalMoney(self, n: int) -> int:
         w, r = divmod(n, 7)
         full = 7 * w * (w - 1) // 2 + 28 * w
         rem  = r * w + r * (r + 1) // 2
         return full + rem
+
+#example usage
+solution = Solution()
+print(solution.totalMoney(4))  # Output: 10
+print(solution.totalMoney(10))  # Output: 37
+print(solution.totalMoney(20))  # Output: 96

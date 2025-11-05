@@ -36,3 +36,11 @@ solution = Solution()
 print(solution.totalMoney(4))  # Output: 10
 print(solution.totalMoney(10))  # Output: 37
 print(solution.totalMoney(20))  # Output: 96
+
+"""walkthrough of the code:
+1. The function totalMoney takes an integer n as input, representing the number of days Hercy saves money.
+2. It calculates the number of complete weeks (w) and the remaining days (r) using divmod.
+3. The variable full calculates the total amount saved during the complete weeks using the formula for the sum of an arithmetic series.
+4. The variable rem calculates the total amount saved during the remaining days after the complete weeks.
+5. Finally, the function returns the sum of full and rem, which is the total amount saved after n days.
+"""

@@ -73,3 +73,10 @@ print(bank.deposit(5, 20))      # Output: True
 print(bank.transfer(3, 4, 15))  # Output: False
 print(bank.withdraw(10, 50))    # Output: False
 
+"""walkthrough of the code:
+1. The Bank class is initialized with a list of balances for each account.
+2. The _valid method checks if a given account number is valid (between 1 and n).
+3. The transfer method transfers money from one account to another if both accounts are valid and the source account has enough balance.
+4. The deposit method adds money to a specified account if the account is valid.
+5. The withdraw method deducts money from a specified account if the account is valid and has enough balance.
+6. Each method returns True if the transaction was successful and False otherwise."""

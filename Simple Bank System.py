@@ -64,3 +64,12 @@ class Bank:
             return False
         self.b[i] -= money
         return True
+
+#example usage
+bank = Bank([10, 100, 20, 50, 30])
+print(bank.withdraw(3, 10))    # Output: True
+print(bank.transfer(5, 1, 20))  # Output: True
+print(bank.deposit(5, 20))      # Output: True
+print(bank.transfer(3, 4, 15))  # Output: False
+print(bank.withdraw(10, 50))    # Output: False
+

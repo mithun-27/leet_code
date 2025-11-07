@@ -32,3 +32,29 @@ Example 2:
 Input: bank = ["000","111","000"]
 Output: 0
 Explanation: There does not exist two devices located on two different rows."""
+
+#answer
+class Solution:
+    def numberOfBeams(self, bank: list[str]) -> int:
+        prev = 0
+        ans = 0
+        for row in bank:
+            curr = row.count('1')
+            if curr:
+                ans += prev * curr
+                prev = curr
+        return ans
+
+#example usage
+sol = Solution()
+print(sol.numberOfBeams(["011001","000000","010100","001000"])) #8
+print(sol.numberOfBeams(["000","111","000"])) #0 
+
+
+"""Explanation of the code:
+1. We initialize two variables: prev to keep track of the number of security devices in the previous non-empty row, and ans to accumulate the total number of laser beams.
+2. We iterate through each row in the bank. For each row, we count the number of '1's (security devices) and store it in curr.
+3. If curr is greater than 0 (meaning the current row has security devices), we calculate the number of laser beams formed between the current row and the previous non-empty row by multiplying prev and curr, and add this to ans.
+4. We then update prev to be curr for the next iteration.
+5. Finally, we return ans, which contains the total number of laser beams in the bank.
+"""

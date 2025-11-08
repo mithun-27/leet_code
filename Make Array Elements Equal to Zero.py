@@ -41,3 +41,20 @@ Explanation:
 There are no possible valid selections."""
 
 #answer
+class Solution:
+    def countValidSelections(self, nums):
+        total = sum(nums)
+        prefix = 0
+        ans = 0
+        
+        for x in nums:
+            if x == 0:
+                left = prefix
+                right = total - prefix
+                if left == right:
+                    ans += 2
+                elif abs(left - right) == 1:
+                    ans += 1
+            prefix += x
+        
+        return ans

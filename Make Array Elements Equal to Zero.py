@@ -63,3 +63,16 @@ class Solution:
 sol = Solution()
 print(sol.countValidSelections([1,0,2,0,3]))  # Output: 2
 print(sol.countValidSelections([2,3,4,0,4,1,0]))  # Output: 0
+
+"""Walkthrough of the code:
+1. We define a class Solution with a method countValidSelections that takes an integer array nums as input.
+2. We calculate the total sum of the elements in nums and store it in the variable total
+3. We initialize two variables: prefix to keep track of the sum of elements to the left of the current position, and ans to count the number of valid selections.
+4. We iterate through each element x in nums:
+   - If x is 0, we check the sums of the left and right sides of the current position.
+   - We calculate left as the sum of elements to the left (prefix) and right as the sum of elements to the right (total - prefix).
+   - If left equals right, it means we can select this position with both left and right directions, so we increment ans by 2.
+   - If the absolute difference between left and right is 1, it means we can select this position with only one direction, so we increment ans by 1.
+5. We update prefix by adding the current element x to it.
+6. Finally, we return ans, which contains the total number of valid selections.
+"""

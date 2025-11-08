@@ -58,3 +58,8 @@ class Solution:
             prefix += x
         
         return ans
+
+#example usage
+sol = Solution()
+print(sol.countValidSelections([1,0,2,0,3]))  # Output: 2
+print(sol.countValidSelections([2,3,4,0,4,1,0]))  # Output: 0

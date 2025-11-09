@@ -60,7 +60,4 @@ To solve this problem, we can use the following approach:
 1. Determine the number of bits required to represent n in binary. This can be done using the bit_length() method in Python, which returns the number of bits necessary to represent an integer in binary, excluding the sign and leading zeros.
 2. Calculate the smallest number with all bits set for the determined bit length. This can be
    achieved by left-shifting 1 by the bit length and then subtracting 1. The expression (1 << n.bit_length()) - 1 gives us a number with all bits set for the required length.
-3. Return the calculated number.
-class Solution:
-    def smallestNumber(self, n: int) -> int:
-        return (1 << n.bit_length()) - 1"""
+3. Return the calculated number."""

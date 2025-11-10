@@ -34,3 +34,23 @@ Constraints:
 1 <= target.length <= 105
 1 <= target[i] <= 105
 ​​​​​​​The input is generated such that the answer fits inside a 32 bit integer."""
+
+#answer
+
+from typing import List
+
+class Solution:
+    def minNumberOperations(self, target: List[int]) -> int:
+        if not target:
+            return 0
+        ans = target[0]
+        for i in range(1, len(target)):
+            if target[i] > target[i-1]:
+                ans += target[i] - target[i-1]
+        return ans
+
+# Example usage:
+sol = Solution()
+print(sol.minNumberOperations([1,2,3,2,1]))  # Output: 3
+print(sol.minNumberOperations([3,1,1,2]))     # Output: 4
+print(sol.minNumberOperations([3,1,5,4,2]))   # Output: 7

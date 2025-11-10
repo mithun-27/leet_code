@@ -64,14 +64,4 @@ print(sol.minNumberOperations([3,1,5,4,2]))   # Output: 7
 5. We start by initializing the answer with the value of the first element in target, as we need at least that many operations to reach that value from zero.
 6. We then iterate through the target array starting from the second element. For each element, if it is greater than the previous element, we add the difference to our answer. This is because we need to perform additional operations to reach this higher value.
 7. Finally, we return the accumulated answer which represents the minimum number of operations needed to form the target array from the initial array.
-Here is the implementation of the above logic in Python:from typing import List
-class Solution:
-    def minNumberOperations(self, target: List[int]) -> int:    
-        if not target:
-            return 0
-        ans = target[0]
-        for i in range(1, len(target)):
-            if target[i] > target[i-1]:
-                ans += target[i] - target[i-1]
-        return ans
 """

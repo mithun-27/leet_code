@@ -55,6 +55,8 @@ solution = Solution()
 print(solution.minCost("abaac", [1,2,3,4,5])) # Output: 3
 print(solution.minCost("abc", [1,2,3])) # Output: 0
 print(solution.minCost("aabaa", [1,2,3,4,1])) # Output: 2
+print(solution.minCost("aaabbbabbbb", [3,5,10,7,5,3,5,5,4,8,1])) # Output: 26  
+
 
 """walk through
 1. Initialize total_time and curr_max_time to 0.

@@ -40,3 +40,161 @@ nums.length == n
 1 <= n <= 105
 1 <= nums[i] <= 109
 1 <= x <= k <= nums.length"""
+
+#answer
+
+from typing import List
+from collections import defaultdict
+import heapq
+
+class Solution:
+    def findXSum(self, nums: List[int], k: int, x: int) -> List[int]:
+        n = len(nums)
+        if k == 0 or n == 0:
+            return []
+        
+        # freq[v] = frequency of value v in the current window
+        freq = defaultdict(int)
+
+        # inBig = set of values currently in the "selected" top-x set
+        inBig = set()
+
+        # big: min-heap of (freq, value, key) for the selected set (top-x)
+        #      the "worst" among selected sits at the top
+        big = []
+
+        # small: max-heap of (-freq, -value, key) for the rest
+        small = []
+
+        # maintain sum over selected: sum(freq[v] * v for v in inBig)
+        sumBig = 0
+
+        def push_state(v):
+            """Push current (freq[v], v) to the appropriate heap (lazy)."""
+            f = freq[v]
+            if f == 0:
+                return
+            if v in inBig:
+                heapq.heappush(big, (f, v, v))
+            else:
+                heapq.heappush(small, (-f, -v, v))
+
+        def prune_big():
+            """Remove stale entries from big."""
+            while big:
+                f, val, v = big[0]
+                if v not in inBig or freq[v] != f or f == 0:
+                    heapq.heappop(big)
+                else:
+                    break
+
+        def prune_small():
+            """Remove stale entries from small."""
+            while small:
+                nf, nv, v = small[0]
+                f, val = -nf, -nv
+                if v in inBig or freq[v] != f or f == 0:
+                    heapq.heappop(small)
+                else:
+                    break
+
+        def promote_one():
+            """Move the best candidate from small -> big."""
+            nonlocal sumBig
+            prune_small()
+            if not small:
+                return False
+            nf, nv, v = heapq.heappop(small)
+            f, val = -nf, -nv
+            # validate
+            if freq[v] != f or f == 0 or v in inBig:
+                return False
+            inBig.add(v)
+            heapq.heappush(big, (f, val, v))
+            sumBig += f * val
+            return True
+
+        def demote_one():
+            """Move the worst selected from big -> small."""
+            nonlocal sumBig
+            prune_big()
+            if not big:
+                return False
+            f, val, v = heapq.heappop(big)
+            if v not in inBig or freq[v] != f or f == 0:
+                return False
+            inBig.remove(v)
+            sumBig -= f * val
+            heapq.heappush(small, (-f, -val, v))
+            return True
+
+        def rebalance():
+            """Ensure big holds exactly the top-x (by (freq, value)) among values with freq>0."""
+            # Fill up to x
+            while len(inBig) < x:
+                prune_small()
+                if not small:
+                    break
+                if not promote_one():
+                    break
+
+            # Shrink if too many
+            while len(inBig) > x:
+                if not demote_one():
+                    break
+
+            # Fix boundary: best of small should not beat worst of big
+            while True:
+                prune_big()
+                prune_small()
+                if not big or not small:
+                    break
+                f_big, val_big, v_big = big[0]          # worst in big
+                f_sml, val_sml = -small[0][0], -small[0][1]  # best in small
+                if (f_sml, val_sml) > (f_big, val_big):
+                    demote_one()
+                    promote_one()
+                else:
+                    break
+
+        def add(v):
+            """Add one occurrence of v into window."""
+            nonlocal sumBig
+            was_in = v in inBig
+            oldf = freq[v]
+            freq[v] = oldf + 1
+            if was_in:
+                # contribution increases by +v
+                sumBig += v
+            push_state(v)
+            rebalance()
+
+        def remove(v):
+            """Remove one occurrence of v from window."""
+            nonlocal sumBig
+            if freq[v] == 0:
+                return
+            was_in = v in inBig
+            # contribution decreases by -v if it was selected
+            if was_in:
+                sumBig -= v
+            freq[v] -= 1
+            # If frequency dropped to 0 and it was selected, remove from inBig now.
+            if freq[v] == 0 and was_in:
+                inBig.remove(v)
+            push_state(v)  # push new state lazily
+            rebalance()
+
+        # Build first window
+        for i in range(k):
+            add(nums[i])
+
+        ans = [sumBig]
+
+        # Slide
+        for i in range(k, n):
+            remove(nums[i - k])
+            add(nums[i])
+            ans.append(sumBig)
+
+        return ans

@@ -198,3 +198,10 @@ class Solution:
             ans.append(sumBig)
 
         return ans
+
+# Example usage:
+sol = Solution()
+print(sol.findXSum([1,1,2,2,3,4,2,3], 6, 2))  # Output: [6,10,12]
+print(sol.findXSum([3,8,7,8,7,5], 2, 2))    # Output: [11,15,15,15,12]
+print(sol.findXSum([1,2,2,3,3,3,4,4,4,4], 5, 3))  # Output: [10,11,12,13,14,15]
+

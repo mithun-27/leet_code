@@ -118,4 +118,9 @@ print(solution.processQueries(5, [[1,2],[2,3],[3,4],[4,5]], [[1,3],[2,1],[1,1],[
 print(solution.processQueries(3, [], [[1,1],[2,1],[1,1]]))  # Output: [1,-1]
 print(solution.processQueries(4, [[1,2],[2,3]], [[1,4],[2,2],[1,2],[1,3]]))  # Output: [4,3,3]
 
-
+"""walkthrough of the code:
+1. We define a Disjoint Set Union (DSU) class to manage the connectivity of power stations.
+2. In the Solution class, we process the connections to build components using the DSU.
+3. For each component, we maintain a min-heap of station IDs to efficiently retrieve the smallest online station.
+4. We handle queries by checking if a station is online or offline and updating the online status accordingly.
+5. Finally, we return the results of the queries."""

@@ -112,3 +112,10 @@ class Solution:
 
         return ans
 
+#example usage
+solution = Solution()
+print(solution.processQueries(5, [[1,2],[2,3],[3,4],[4,5]], [[1,3],[2,1],[1,1],[2,2],[1,2]]))  # Output: [3,2,3]
+print(solution.processQueries(3, [], [[1,1],[2,1],[1,1]]))  # Output: [1,-1]
+print(solution.processQueries(4, [[1,2],[2,3]], [[1,4],[2,2],[1,2],[1,3]]))  # Output: [4,3,3]
+
+

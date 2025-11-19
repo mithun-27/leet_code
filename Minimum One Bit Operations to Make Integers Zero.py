@@ -44,7 +44,7 @@ print(s.minimumOneBitOperations(3))  # Output: 2
 print(s.minimumOneBitOperations(6))  # Output: 4
 print(s.minimumOneBitOperations(0))  # Output: 0
 
-"""walkthrough
+"""walkthrough of the code:
 1. Initialize ans to 0. This will hold the final result.
 2. While n is not zero, do the following:
    a. Update ans by performing a bitwise XOR between ans and n.

@@ -37,3 +37,10 @@ class Solution:
             ans ^= n
             n >>= 1
         return ans
+
+#example usage
+s=Solution()
+print(s.minimumOneBitOperations(3))  # Output: 2
+print(s.minimumOneBitOperations(6))  # Output: 4
+print(s.minimumOneBitOperations(0))  # Output: 0
+

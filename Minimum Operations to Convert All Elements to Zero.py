@@ -47,3 +47,18 @@ Constraints:
 
 1 <= n == nums.length <= 105
 0 <= nums[i] <= 105"""
+
+#answer
+class Solution:
+    def minOperations(self, nums: list[int]) -> int:
+        ans = 0
+        st = [0]  
+
+        for x in nums:
+            while st and st[-1] > x:
+                st.pop()
+            if not st or st[-1] < x:
+                ans += 1
+                st.append(x)
+
+        return ans

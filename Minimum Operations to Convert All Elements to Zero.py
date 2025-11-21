@@ -62,3 +62,20 @@ class Solution:
                 st.append(x)
 
         return ans
+
+#example usage
+s = Solution()
+print(s.minOperations([0, 2]))  # Output: 1
+print(s.minOperations([3, 1, 2, 1]))  # Output: 3
+print(s.minOperations([1, 2, 1, 2, 1, 2]))  # Output: 4
+
+"""walthrough of the code 
+1. The `Solution` class is defined with a method `minOperations` that takes a list of integers `nums`.
+2. The variable `ans` is initialized to 0, which will count the number of operations needed.
+3. A stack `st` is initialized with a single element 0, which will be used to keep track of the minimum elements encountered.
+4. The method iterates through each element `x` in `nums`.
+5. Inside the loop, a while loop checks if the top of the stack `st` is greater than `x`. If it is, the top element is popped from the stack.
+6. If the stack is empty or the top element of the stack is less than `x`, it means `x` is a new minimum that needs to be counted. The operation count `ans` is incremented by 1, and `x` is pushed onto the stack.
+7. After processing all elements in `nums`, the method returns the total count of operations stored in `ans`.
+This approach ensures that we only count unique minimums in the sequence, leading to the minimum number of operations required to convert all elements to zero.
+"""

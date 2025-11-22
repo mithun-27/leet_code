@@ -26,3 +26,26 @@ Constraints:
 1 <= strs[i].length <= 100
 strs[i] consists only of digits '0' and '1'.
 1 <= m, n <= 100"""
+
+#answer
+from typing import List
+
+class Solution:
+    def findMaxForm(self, strs: List[str], m: int, n: int) -> int:
+        dp = [[0]*(n+1) for _ in range(m+1)]
+
+        for s in strs:
+            z = s.count('0')
+            o = len(s) - z
+            for i in range(m, z-1, -1):
+                for j in range(n, o-1, -1):
+                    dp[i][j] = max(dp[i][j], 1 + dp[i - z][j - o])
+
+        return dp[m][n]
+
+# Example usage:
+solution = Solution()
+print(solution.findMaxForm(["10","0001","111001","1","0"], 5, 3))  # Output: 4
+print(solution.findMaxForm(["10","0","1"], 1, 1))  # Output: 2
+print(solution.findMaxForm(["10","0001","111001","1","0"], 3, 3))  # output: 3
+

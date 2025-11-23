@@ -58,3 +58,9 @@ class Solution:
 
         
         return min_len_minus1 + (n - 1)
+
+# Example usage:
+solution = Solution()
+print(solution.minOperations([2,6,3,4]))  # Output: 4
+print(solution.minOperations([2,10,6,14]))  # Output: -1
+print(solution.minOperations([4,3,2,1]))  # output: 3

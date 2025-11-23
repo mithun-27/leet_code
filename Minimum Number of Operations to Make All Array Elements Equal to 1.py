@@ -64,3 +64,12 @@ solution = Solution()
 print(solution.minOperations([2,6,3,4]))  # Output: 4
 print(solution.minOperations([2,10,6,14]))  # Output: -1
 print(solution.minOperations([4,3,2,1]))  # output: 3
+
+"""walkthrough
+1. We define a class Solution with a method minOperations that takes a list of positive integers nums.
+2. We count the number of elements equal to 1 in nums. If there are any, we can directly return the number of operations needed to make all elements equal to 1, which is n - ones.
+3. If there are no 1s, we initialize a variable min_len_minus1 to a large value (INF) to keep track of the minimum length of subarray that can be converted to 1.
+4. We iterate through each element in nums and calculate the gcd of the subarray starting from that element.
+5. If we find a subarray whose gcd is 1, we update min_len_minus1 with the length of that subarray minus 1.
+6. If we finish checking all subarrays and min_len_minus1 is still INF, it means it's impossible to make all elements equal to 1, so we return -1.
+7. Finally, we return the total number of operations needed, which is min_len_minus1 + (n - 1).""""

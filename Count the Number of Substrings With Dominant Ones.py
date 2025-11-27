@@ -108,3 +108,22 @@ class Solution:
                     ans += (Rmax - r + 1)
 
         return ans
+    
+#sample usage
+Solution().numberOfSubstrings("00011")  # Expected output: 5
+Solution().numberOfSubstrings("101101")  # Expected output: 16
+Solution().numberOfSubstrings("1")  # Expected output: 1
+
+"""walkthrough
+1. We define a class Solution with a method numberOfSubstrings that takes a binary string s as input.
+2. We calculate the length of the string n.
+3. We create a prefix sum array pref to count the number of ones up to each index in the string.
+4. We create a list Z to store the indices of zeros in the string.  
+5. We initialize a variable ans to store the count of substrings with dominant ones.
+6. We iterate through the string to count substrings consisting entirely of ones and add their counts to ans.
+7. We define a variable B as the integer square root of n plus 2 to limit the number of zeros we consider.
+8. We define a helper function ones(l, r) to calculate the number of ones in the substring s[l..r].
+9. We iterate through each zero in Z and for each zero, we consider substrings that contain a certain number of zeros (up to B).
+10. For each valid substring defined by the zeros, we calculate the minimum and maximum indices for the left and right boundaries.11. We check if the number of ones in the substring is greater than or equal to the square of the number of zeros and update ans accordingly.
+12. Finally, we return the total count of substrings with dominant ones stored in ans.
+"""

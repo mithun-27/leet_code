@@ -42,4 +42,20 @@ class Solution:
         ans=ans+count*(count+1)//2%mod
         return ans
 
-        
+#sample usage
+sol=Solution()
+print(sol.numSub("0110111"))  # Output: 9
+print(sol.numSub("101"))      # Output: 2
+print(sol.numSub("111111"))  # Output: 21
+
+
+"""walkthrough
+1. Initialize a variable `mod` to store the modulo value (10^9 + 7).
+2. Initialize `count` to keep track of the current length of consecutive '1's and `ans` to store the final answer.
+3. Iterate through each character `c` in the string `s`:
+   - Check if `c` is '0' and store the result in `is0`.
+   - If `c` is '0', add the number of substrings formed by the previous consecutive '1's to `ans` using the formula `count * (count + 1) // 2`, and reset `count` to 0.
+   - If `c` is '1', increment `count` by 1.
+   - Use bitwise operations to handle the conditions efficiently.
+4. After the loop, add the substrings formed by the last sequence of '1's to `ans`.
+5. Return `ans` modulo `mod`."""

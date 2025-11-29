@@ -34,3 +34,9 @@ class Solution:
                     return False
                 prev = i
         return True
+
+#sample usage
+sol = Solution()
+print(sol.kLengthApart([1,0,0,0,1,0,0,1], 2))  # Output: True
+print(sol.kLengthApart([1,0,0,1,0,1], 2))      # Output: False
+print(sol.kLengthApart([1,0,1,0,0,0,1], 2))  # Output: True

@@ -46,3 +46,12 @@ sol = Solution()
 print(sol.findFinalValue([5,3,6,1,12], 3))  # Output: 24
 print(sol.findFinalValue([2,7,9], 4))  # Output: 4
 print(sol.findFinalValue([1,2,4,8], 2))  # Output: 16
+
+"""walkthrough
+1. Convert the list `nums` into a set `s` for O(1) average time complexity lookups.
+2. Use a while loop to check if `original` is in the set `s`.
+3. If it is, multiply `original` by 2.
+4. Repeat until `original` is not found in the set.
+5. Return the final value of `original`.
+6. This approach ensures efficient searching and updating of the `original` value.
+"""

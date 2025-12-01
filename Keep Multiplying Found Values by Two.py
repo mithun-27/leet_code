@@ -41,3 +41,4 @@ class Solution:
             original *= 2
         return original
 
+#sample usage

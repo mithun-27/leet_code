@@ -42,3 +42,7 @@ class Solution:
         return original
 
 #sample usage
+sol = Solution()
+print(sol.findFinalValue([5,3,6,1,12], 3))  # Output: 24
+print(sol.findFinalValue([2,7,9], 4))  # Output: 4
+print(sol.findFinalValue([1,2,4,8], 2))  # Output: 16

@@ -37,3 +37,32 @@ Constraints:
 
 3 <= s.length <= 105
 s consists of only lowercase English letters."""
+
+#answer
+
+class Solution:
+    def countPalindromicSubsequence(self, s: str) -> int:
+        ans = 0
+        for ch in map(chr, range(ord('a'), ord('z') + 1)):
+            i = s.find(ch)
+            j = s.rfind(ch)
+            if i != -1 and j != -1 and i < j:
+                mid_set = set(s[i+1:j])
+                ans += len(mid_set)
+        return ans
+
+#sample test case
+solution = Solution()
+print(solution.countPalindromicSubsequence("aabca"))  # Output: 3
+print(solution.countPalindromicSubsequence("adc"))    # Output: 0
+print(solution.countPalindromicSubsequence("bbcbaba")) # Output: 4
+
+"""walkthrough
+1. Initialize a counter `ans` to zero to keep track of the number of unique palindromic subsequences.
+2. Loop through each character `ch` from 'a' to 'z':
+   a. Find the first occurrence index `i` and the last occurrence index `j` of `ch` in the string `s`.
+   b. If both indices are valid and `i` is less than `j`, it means there are characters between these two occurrences.
+   c. Create a set of characters found between indices `i` and `j` (exclusive) to ensure uniqueness.
+   d. Add the size of this set to the counter `ans`.
+3. Return the final count `ans` after checking all characters.
+4. This approach efficiently counts unique palindromic subsequences of length 3 by leveraging the properties of palindromes and sets."""

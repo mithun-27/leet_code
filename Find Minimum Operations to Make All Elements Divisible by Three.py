@@ -29,3 +29,13 @@ Constraints:
 
 1 <= nums.length <= 50
 1 <= nums[i] <= 50"""
+
+#answer
+
+class Solution:
+    def minimumOperations(self, nums):
+        ans = 0
+        for x in nums:
+            if x % 3 != 0:
+                ans += 1
+        return ans

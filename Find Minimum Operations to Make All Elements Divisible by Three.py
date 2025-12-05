@@ -45,3 +45,11 @@ solution = Solution()
 print(solution.minimumOperations([1,2,3,4]))  # Output: 3
 print(solution.minimumOperations([3,6,9]))    # Output: 0
 print(solution.minimumOperations([4,5,6,7,8])) # Output: 4
+
+"""walkthrough
+1. Initialize a counter `ans` to zero to keep track of the number of operations needed.
+2. Loop through each element `x` in the input array `nums`:
+   a. Check if `x` is not divisible by 3 using the modulus operator (`x % 3 != 0`).
+   b. If it is not divisible, increment the counter `ans` by 1.
+3. After checking all elements, return the total count `ans`, which represents the minimum number of operations required to make all elements divisible by 3.
+4. The time complexity of this solution is O(n), where n is the number of elements in the input array."""

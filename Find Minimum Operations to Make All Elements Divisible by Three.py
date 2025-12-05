@@ -39,3 +39,9 @@ class Solution:
             if x % 3 != 0:
                 ans += 1
         return ans
+    
+#sample test case
+solution = Solution()
+print(solution.minimumOperations([1,2,3,4]))  # Output: 3
+print(solution.minimumOperations([3,6,9]))    # Output: 0
+print(solution.minimumOperations([4,5,6,7,8])) # Output: 4

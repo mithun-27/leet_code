@@ -23,3 +23,21 @@ Constraints:
 
 1 <= nums.length <= 105
 nums[i] is either 0 or 1."""
+
+#answer
+
+from typing import List
+
+class Solution:
+    def prefixesDivBy5(self, nums: List[int]) -> List[bool]:
+        res = []
+        cur = 0
+        for b in nums:
+            cur = (cur * 2 + b) % 5
+            res.append(cur == 0)
+        return res
+
+#sample test case
+solution = Solution()
+print(solution.prefixesDivBy5([0,1,1]))  # Output: [True, False, False]
+print(solution.prefixesDivBy5([1,1,1]))  # Output: [False, False, False]

@@ -41,3 +41,12 @@ class Solution:
 solution = Solution()
 print(solution.prefixesDivBy5([0,1,1]))  # Output: [True, False, False]
 print(solution.prefixesDivBy5([1,1,1]))  # Output: [False, False, False]
+
+"""walkthrough
+1. Initialize an empty list `res` to store the boolean results.
+2. Initialize a variable `cur` to keep track of the current number modulo 5.
+3. Loop through each bit `b` in the input list `nums`:
+    a. Update `cur` by shifting the previous value left (multiplying by 2), adding the current bit `b`, and taking modulo 5.
+    b. Append `True` to `res` if `cur` is 0 (indicating divisibility by 5), otherwise append `False`.
+4. Return the list `res` containing the boolean results for each prefix.
+"""

@@ -63,3 +63,24 @@ solution = Solution()
 print(solution.maxSumDivThree([3,6,5,1,8]))  # Output: 18
 print(solution.maxSumDivThree([4]))          # Output: 0
 print(solution.maxSumDivThree([1,2,3,4,4]))  # Output: 12
+
+"""walkthrough
+1. Calculate the total sum of the input array `nums`.
+2. Create two lists, `r1` and `r2`, to store elements based on their remainders when divided by 3.
+3. Loop through each element `x` in `nums`:
+    a. If `x % 3 == 1`, append `x` to the list `r1`.
+    b. If `x % 3 == 2`, append `x` to the list `r2`.
+4. Sort both lists `r1` and `r2` to facilitate finding the smallest elements later.
+5. Determine the remainder of the total sum when divided by 3 (`mod = total % 3`).
+6. If `mod` is 0, return the total sum as it is already divisible by 3.
+7. If `mod` is 1:
+    a. Calculate `option1` as the smallest element in `r1` (if available).
+    b. Calculate `option2` as the sum of the two smallest elements in `r2` (if available).
+    c. Subtract the minimum of `option1` and `option2` from the total sum to get the maximum sum divisible by 3.
+8. If `mod` is 2:
+    a. Calculate `option1` as the smallest element in `r2` (if available).
+    b. Calculate `option2` as the sum of the two smallest elements in `r1` (if available).
+    c. Subtract the minimum of `option1` and `option2` from the total sum to get the maximum sum divisible by 3.
+9. Return the calculated maximum sum if it is not infinity; otherwise, return 0.
+10. The time complexity of this solution is O(n log n) due to the sorting step, where n is the number of elements in the input array.
+"""

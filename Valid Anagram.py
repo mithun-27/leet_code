@@ -35,3 +35,8 @@ class Solution:
             countS[s[i]] = 1 + countS.get(s[i], 0)
             countT[t[i]] = 1 + countT.get(t[i], 0)
         return countS == countT
+
+# Example usage:
+solution = Solution()
+print(solution.isAnagram("anagram", "nagaram"))  # Output: True
+print(solution.isAnagram("rat", "car"))          # Output: False

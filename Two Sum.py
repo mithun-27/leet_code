@@ -27,3 +27,21 @@ Constraints:
 -109 <= nums[i] <= 109
 -109 <= target <= 109
 Only one valid answer exists."""
+
+
+#answer
+
+class Solution:
+    def twoSum(self, nums: List[int], target: int) -> List[int]:
+        pm={}
+        for i , n in enumerate(nums):
+            diff=target - n
+            if diff in pm:
+                return [pm[diff],i]
+            pm[n]=i
+
+# Example usage:
+solution = Solution()
+print(solution.twoSum([2,7,11,15], 9))  # Output: [0, 1]
+print(solution.twoSum([3,2,4], 6))      # Output: [1, 2]
+print(solution.twoSum([3,3], 6))        # Output: [0, 1]

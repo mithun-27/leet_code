@@ -44,3 +44,8 @@ class Solution:
             res[tuple(count)].append(s)
         return list(res.values())
 
+# Example usage:
+solution = Solution()
+print(solution.groupAnagrams(["eat","tea","tan","ate","nat","bat"]))  # Output: [["bat"],["nat","tan"],["ate","eat","tea"]]
+print(solution.groupAnagrams([""]))  # Output: [[""]]   
+print(solution.groupAnagrams(["a"]))  # Output: [["a"]]

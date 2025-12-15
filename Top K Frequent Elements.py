@@ -28,3 +28,38 @@ Constraints:
 -104 <= nums[i] <= 104
 k is in the range [1, the number of unique elements in the array].
 It is guaranteed that the answer is unique."""
+
+#answer
+class Solution:
+    def topKFrequent(self, nums: List[int], k: int) -> List[int]:
+        count = {}
+        freq = [[] for i in range(len(nums) + 1)]
+
+        for num in nums:
+            count[num] = 1 + count.get(num, 0)
+        for num, cnt in count.items():
+            freq[cnt].append(num)
+
+        res = []
+        for i in range(len(freq) - 1, 0, -1):
+            for num in freq[i]:
+                res.append(num)
+                if len(res) == k:
+                    return res
+
+# Example usage:
+solution = Solution()
+print(solution.topKFrequent([1,1,1,2,2,3], 2))  # Output: [1,2]
+print(solution.topKFrequent([1], 1))  # Output: [1]
+print(solution.topKFrequent([1,2,1,2,1,2,3,1,3,2], 2))  # Output: [1,2]
+
+"""walkthrough
+1. We define a class Solution with a method topKFrequent that takes a list of integers nums and an integer k as input.
+2. We initialize a dictionary count to store the frequency of each number in nums.
+3. We create a list freq of empty lists, where the index represents the frequency of numbers. The size of freq is len(nums) + 1 to accommodate frequencies from 0 to len(nums).
+4. We iterate through each number in nums and update its count in the count dictionary.
+5. We then iterate through the count dictionary and append each number to the corresponding list in freq based on its frequency.
+6. We initialize an empty list res to store the result.
+7. We iterate through the freq list in reverse order (from highest frequency to lowest). For each frequency, we iterate through the numbers in that frequency list and append them to res.
+8. We check if the length of res has reached k, and if so, we return res as the final output.
+"""

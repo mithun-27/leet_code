@@ -53,3 +53,13 @@ solution = Solution()
 print(solution.isPalindrome("A man, a plan, a canal: Panama"))  # Output: True
 print(solution.isPalindrome("race a car"))  # Output: False
 print(solution.isPalindrome(" "))  # Output: True
+
+"""walkthrough
+1. We define a class Solution with a method isPalindrome that takes a string s as input.
+2. We initialize two pointers, l and r, to the start and end of the string, respectively.
+3. We enter a while loop that continues as long as l is less than r.
+4. Inside the loop, we use two nested while loops to move the l pointer forward and the r pointer backward until they point to alphanumeric characters. This is done using the helper method alphaNum, which checks if a character is alphanumeric. 
+5. After finding valid alphanumeric characters at both pointers, we compare them in a case-insensitive manner using the lower() method. If they do not match, we return False, indicating that the string is not a palindrome.  
+6. If the characters match, we move both pointers closer to the center of the string (l is incremented and r is decremented) and continue the process.  
+7. If the loop completes without finding any mismatches, we return True, indicating that the string is a palindrome.
+"""

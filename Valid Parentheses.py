@@ -67,3 +67,12 @@ print(solution.isValid("()"))        # Output: True
 print(solution.isValid("()[]{}"))    # Output: True
 print(solution.isValid("(]"))        # Output: False
 print(solution.isValid("([])"))      # Output: True
+
+"""walkthrough
+1. Initialize an empty stack to keep track of opening brackets.
+2. Create a mapping of closing brackets to their corresponding opening brackets.
+3. Iterate through each character in the string:
+   - If the character is a closing bracket, check if the stack is not empty and if the top of the stack matches the corresponding opening bracket. If it does, pop the top of the stack; otherwise, return False.
+   - If the character is an opening bracket, push it onto the stack.
+4. After processing all characters, check if the stack is empty. If it is, return True (all brackets were matched); otherwise, return False.
+"""

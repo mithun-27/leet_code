@@ -60,3 +60,10 @@ class Solution:
                 stack.append(c)
 
         return True if not stack else False
+
+#example usage
+solution = Solution()
+print(solution.isValid("()"))        # Output: True
+print(solution.isValid("()[]{}"))    # Output: True
+print(solution.isValid("(]"))        # Output: False
+print(solution.isValid("([])"))      # Output: True

@@ -23,3 +23,32 @@ Constraints:
 
 1 <= prices.length <= 105
 0 <= prices[i] <= 104"""
+
+#answer
+class Solution:
+    def maxProfit(self, prices: List[int]) -> int:
+        l,r=0,1
+        mp=0
+        while r < len(prices):
+            if prices[l]<prices[r]:
+                profit = prices[r]-prices[l]
+                mp=max(mp,profit)
+            else:
+                l=r
+            r+=1
+        return mp
+    
+#example usage
+solution = Solution()
+print(solution.maxProfit([7,1,5,3,6,4]))  # Output: 5
+print(solution.maxProfit([7,6,4,3,1]))    # Output: 0
+
+"""walkthrough
+1. Initialize two pointers, `l` (left) and `r` (right), to represent the buy and sell days respectively. Start with `l` at index 0 and `r` at index 1.
+2. Initialize a variable `mp` (max profit) to keep track of the maximum profit found so far, starting at 0.
+3. Loop while `r` is less than the length of the prices array:
+    - If the price at day `l` is less than the price at day `r`, calculate the profit by subtracting the price at `l` from the price at `r`. Update `mp` if this profit is greater than the current `mp`.
+    - If the price at day `l` is not less than the price at day `r`, move the `l` pointer to the current position of `r` (indicating a new potential buy day).
+    - Increment the `r` pointer to check the next day.
+4. After the loop, return the maximum profit `mp`.
+"""

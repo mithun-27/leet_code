@@ -47,3 +47,15 @@ solution = Solution()
 print(solution.lengthOfLongestSubstring("abcabcbb"))  # Output: 3
 print(solution.lengthOfLongestSubstring("bbbbb"))     # Output: 1
 print(solution.lengthOfLongestSubstring("pwwkew"))    # Output: 3
+
+"""walkthrough
+1. Initialize an empty set `charSet` to keep track of unique characters in the current substring.
+2. Initialize two pointers, `l` (left) and `r` (right), to represent the current substring's boundaries. Start with `l` at index 0.
+3. Initialize a variable `res` to keep track of the length of the longest substring found so far, starting at 0.
+4. Loop through the string with the `r` pointer:
+    - While the character at index `r` is already in `charSet`, it means we have a duplicate. Remove the character at index `l` from `charSet` and increment `l` to shrink the window from the left until the duplicate is removed.
+    - Add the character at index `r` to `charSet`.
+    - Update `res` with the maximum value between the current `res` and the length of the current substring (`r - l + 1`).
+5. After the loop, return `res`, which contains the length of the longest substring without repeating characters.
+6. This approach ensures that each character is processed at most twice (once added and once removed), resulting in an O(n) time complexity.from typing import List
+"""

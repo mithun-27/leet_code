@@ -40,3 +40,10 @@ class Solution:
             charSet.add(s[r])
             res = max(res, r - l + 1)
         return res
+
+
+#example usage
+solution = Solution()
+print(solution.lengthOfLongestSubstring("abcabcbb"))  # Output: 3
+print(solution.lengthOfLongestSubstring("bbbbb"))     # Output: 1
+print(solution.lengthOfLongestSubstring("pwwkew"))    # Output: 3

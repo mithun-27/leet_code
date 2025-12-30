@@ -46,3 +46,9 @@ class Solution:
             else:
                 l = m + 1
         return nums[l]
+    
+#example usage
+sol = Solution()
+print(sol.findMin([3,4,5,1,2]))  # Output: 1
+print(sol.findMin([4,5,6,7,0,1,2]))  # Output: 0
+print(sol.findMin([11,13,15,17]))  # Output: 11 

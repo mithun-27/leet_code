@@ -62,4 +62,16 @@ print(sol.findMin([11,13,15,17]))  # Output: 11
 3. When the loop ends, `l` will point to the minimum element in the array. Return `nums[l]`.
 4. This algorithm runs in O(log n) time due to the binary search approach.
 5. The space complexity is O(1) since we are using only a constant amount of extra space.
+6. Test the function with example inputs to verify correctness.
+        m = l + (r - l) // 2
+7. Expand the right pointer `r` to include more characters from `s`.
+    - Update the frequency of the character at `s[r]` in the `window` dictionary.
+    - If the frequency of this character in the `window` matches its frequency in `countT`, increment `have`.
+8. While `have` equals `need`, it means the current window contains all characters from `t`:
+    - Check if the current window size is smaller than the previously recorded minimum window size. If
+      it is, update `res` and `resLen`.
+    - Shrink the window from the left by moving the `l` pointer to the right.
+    - Decrement the frequency of the character at `s[l]` in the `window` dictionary.
+    - If this character is in `countT` and its frequency in `window` drops below that in `countT`, decrement `have`.
+9. After processing the entire string `s`, extract the substring using the indices stored in `res`. If no valid window was found, return an empty string.
 """

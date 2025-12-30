@@ -52,3 +52,14 @@ sol = Solution()
 print(sol.findMin([3,4,5,1,2]))  # Output: 1
 print(sol.findMin([4,5,6,7,0,1,2]))  # Output: 0
 print(sol.findMin([11,13,15,17]))  # Output: 11 
+
+"""walkthrough
+1. Initialize two pointers, `l` and `r`, to the start and end of the array.
+2. While `l` is less than `r`, do the following:
+   a. Calculate the middle index `m`.
+   b. If the middle element `nums[m]` is less than the rightmost element `nums[r]`, it means the minimum element is in the left half (including `m`), so update `r` to `m`.
+   c. Otherwise, the minimum element is in the right half (excluding `m`), so update `l` to `m + 1`.
+3. When the loop ends, `l` will point to the minimum element in the array. Return `nums[l]`.
+4. This algorithm runs in O(log n) time due to the binary search approach.
+5. The space complexity is O(1) since we are using only a constant amount of extra space.
+"""

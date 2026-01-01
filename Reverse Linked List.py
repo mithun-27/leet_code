@@ -59,3 +59,17 @@ while current:
     current = current.next
 # Output: 5 -> 4 -> 3 -> 2 -> 1
 
+"""walkthrough
+1. Initialize two pointers, `prev` as `None` and `curr` as the head of the linked list.
+2. While `curr` is not `None`, do the following:
+   a. Store the next node of `curr` in a temporary variable `temp`.
+   b. Reverse the link by setting `curr.next` to `prev`.
+   c. Move `prev` to `curr` and `curr` to `temp`.
+3. Once the loop ends, `prev` will be the new head of the reversed linked list. Return `prev`.
+Compare this snippet from Find%20Minimum%20in%20Rotated%20Sorted%20Array.py:
+[4,5,6,7,0,1,2] if it was rotated 4 times.
+[0,1,2,4,5,6,7] if it was rotated 7 times.
+Notice that rotating an array [a[0], a[1], a[2], ..., a[n-1]] 1 time results in the array [a[n-1], a[0], a[1], a[2], ..., a[n-2]].
+Given the sorted rotated array nums of unique elements, return the minimum element of this array.
+You must write an algorithm that runs in O(log n) time.
+"""

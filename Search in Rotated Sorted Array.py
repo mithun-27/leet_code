@@ -52,3 +52,22 @@ class Solution:
                 else:
                     l = mid + 1
         return -1
+    
+#example usage
+sol = Solution()
+print(sol.search([4,5,6,7,0,1,2], 0))  # Output: 4
+print(sol.search([4,5,6,7,0,1,2], 3))  # Output: -1
+print(sol.search([1], 0))  # Output: -1 
+
+"""walkthrough
+1. Initialize two pointers, `l` and `r`, to the start and end of the array.
+2. While `l` is less than or equal to `r`, do the following:    
+    a. Calculate the middle index `mid`.
+    b. If the middle element `nums[mid]` is equal to the target, return `mid`.
+    c. Determine which half of the array is sorted:
+        - If the left half (`nums[l]` to `nums[mid]`) is sorted:
+          i. Check if the target is within this range. If it is, adjust `r` to `mid - 1`. Otherwise, adjust `l` to `mid + 1`.
+        - If the right half (`nums[mid]` to `nums[r]`) is sorted:
+          i. Check if the target is within this range. If it is, adjust `l` to `mid + 1`. Otherwise, adjust `r` to `mid - 1`.
+3. If the target is not found, return -1.
+"""

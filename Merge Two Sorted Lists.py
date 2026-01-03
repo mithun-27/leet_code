@@ -67,3 +67,12 @@ while current:
     print(current.val, end=" -> " if current.next else "")
     current = current.next
 # Output: 1 -> 1 -> 2 -> 3 -> 4 -> 4
+
+"""walkthrough
+1. Initialize a dummy node to serve as the starting point of the merged list.
+2. Use a pointer `node` to track the end of the merged list as we build it.
+3. Iterate through both lists, comparing the current nodes of each list.    
+4. Append the smaller node to the merged list and move the corresponding pointer forward.
+5. Once we reach the end of one list, append the remaining nodes of the other list.
+6. Return the merged list, which starts from `dummy.next`.
+7. This approach ensures that the merged list is sorted as we only append the smaller node at each step."""

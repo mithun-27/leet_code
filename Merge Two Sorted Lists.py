@@ -26,3 +26,44 @@ Constraints:
 The number of nodes in both lists is in the range [0, 50].
 -100 <= Node.val <= 100
 Both list1 and list2 are sorted in non-decreasing order."""
+
+#answe
+# Definition for singly-linked list.
+# class ListNode:
+#     def __init__(self, val=0, next=None):
+#         self.val = val
+#         self.next = next
+
+class Solution:
+    def mergeTwoLists(self, list1: ListNode, list2: ListNode) -> ListNode:
+        dummy = node = ListNode()
+
+        while list1 and list2:
+            if list1.val < list2.val:
+                node.next = list1
+                list1 = list1.next
+            else:
+                node.next = list2
+                list2 = list2.next
+            node = node.next
+
+        node.next = list1 or list2
+
+        return dummy.next
+        
+#example usage
+# Creating two sorted linked lists for demonstration:   
+list1 = ListNode(1)  
+list1.next = ListNode(2)
+list1.next.next = ListNode(4)
+list2 = ListNode(1)
+list2.next = ListNode(3)
+list2.next.next = ListNode(4)
+sol = Solution()
+merged_head = sol.mergeTwoLists(list1, list2)
+# Printing the merged linked list
+current = merged_head
+while current:
+    print(current.val, end=" -> " if current.next else "")
+    current = current.next
+# Output: 1 -> 1 -> 2 -> 3 -> 4 -> 4

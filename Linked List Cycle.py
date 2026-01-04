@@ -64,3 +64,12 @@ node3.next = node4
 node4.next = node2  # Creates a cycle here
 sol = Solution()
 print(sol.hasCycle(node1))  # Output: True
+
+
+"""walkthrough
+1. Initialize two pointers, `slow` and `fast`, both starting at the head of the linked list.
+2. Move `slow` one step at a time and `fast` two steps at a time.
+3. If there is a cycle, the `fast` pointer will eventually meet the `slow` pointer.
+4. If `fast` reaches the end of the list (i.e., `fast` or `fast.next` is None), then there is no cycle.
+5. Return True if a cycle is detected, otherwise return False.
+6. This approach uses O(1) space and O(n) time complexity."""

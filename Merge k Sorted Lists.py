@@ -76,3 +76,12 @@ class Solution:
             tail.next = l2
 
         return dummy.next
+
+#example usage
+# Creating linked lists for demonstration:
+list1 = ListNode(1, ListNode(4, ListNode(5)))
+list2 = ListNode(1, ListNode(3, ListNode(4)))
+list3 = ListNode(2, ListNode(6))
+lists = [list1, list2, list3]
+solution = Solution()
+merged_head = solution.mergeKLists(lists)   

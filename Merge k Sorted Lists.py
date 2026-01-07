@@ -85,3 +85,14 @@ list3 = ListNode(2, ListNode(6))
 lists = [list1, list2, list3]
 solution = Solution()
 merged_head = solution.mergeKLists(lists)   
+
+"""walkthrough
+1. Check if the input list is empty; if so, return None.
+2. While there is more than one list in the input:
+   a. Create an empty list to hold merged lists.
+   b. Iterate through the input lists in pairs:
+      i. Merge each pair using the mergeList helper function.
+      ii. Append the merged list to the mergedLists list.
+   c. Update the input lists to be the mergedLists.
+3. Return the single merged list remaining in the input lists.
+4. The mergeList function merges two sorted linked lists into one sorted linked list using a dummy head and a tail pointer."""

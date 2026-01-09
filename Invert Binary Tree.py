@@ -45,6 +45,28 @@ class Solution:
                 stack.append(node.right)
         return root
     
+#example usage
+sol = Solution()
+# Example 1
+root1 = TreeNode(4)
+root1.left = TreeNode(2)
+root1.right = TreeNode(7)
+root1.left.left = TreeNode(1)
+root1.left.right = TreeNode(3)
+root1.right.left = TreeNode(6)
+root1.right.right = TreeNode(9)
+inverted1 = sol.invertTree(root1)
+# Example 2
+root2 = TreeNode(2)
+root2.left = TreeNode(1)
+root2.right = TreeNode(3)
+inverted2 = sol.invertTree(root2)
+# Example 3
+root3 = None
+inverted3 = sol.invertTree(root3)
+
+
+
 """"walkthrough
 1. Check if the root is None. If it is, return None.
 2. Initialize a stack with the root node.       

@@ -49,3 +49,29 @@ class Solution:
                 cur = cur.left
             else:
                 return cur
+            
+
+#example usage
+sorted_tree = TreeNode(6)
+sorted_tree.left = TreeNode(2)  
+sorted_tree.right = TreeNode(8)
+sorted_tree.left.left = TreeNode(0)
+sorted_tree.left.right = TreeNode(4)
+sorted_tree.right.left = TreeNode(7)
+sorted_tree.right.right = TreeNode(9)
+sorted_tree.left.right.left = TreeNode(3)
+sorted_tree.left.right.right = TreeNode(5)  
+p = sorted_tree.left  
+q = sorted_tree.right   
+solution = Solution()
+lca = solution.lowestCommonAncestor(sorted_tree, p, q)
+print(f"The Lowest Common Ancestor of nodes {p.val} and {q.val} is: {lca.val}")
+
+"""walkthrough
+1. Start at the root of the BST.
+2. Compare the values of nodes p and q with the value of the current node (cur).
+3. If both p and q have values greater than cur, move to the right child of cur.
+4. If both p and q have values less than cur, move to the left child of cur.
+5. If neither of the above conditions is true, cur is the LCA of p and q, so return cur.    
+6. The process continues until the LCA is found.
+7. The time complexity is O(h), where h is the height of the tree, and the space complexity is O(1) since we are using only a constant amount of extra space."""

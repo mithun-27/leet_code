@@ -50,3 +50,11 @@ class Solution:
                 q.append((node.right, node.val, right))
 
         return True
+
+#example usage
+# Constructing the binary tree [2,1,3]  
+root = TreeNode(2)
+root.left = TreeNode(1)
+root.right = TreeNode(3)
+solution = Solution()
+print(solution.isValidBST(root))  # Output: True

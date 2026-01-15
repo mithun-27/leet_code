@@ -58,3 +58,14 @@ root.left = TreeNode(1)
 root.right = TreeNode(3)
 solution = Solution()
 print(solution.isValidBST(root))  # Output: True
+
+"""walkthrough
+1. We define a class Solution with a method isValidBST that takes the root of a binary tree as input.
+2. We check if the root is None; if it is, we return True since an empty tree is a valid BST.
+3. We initialize a deque (double-ended queue) to perform a breadth-first traversal of the tree. Each element in the queue is a tuple containing a node and its valid value range (left, right).
+4. We enter a while loop that continues until the queue is empty. In each iteration, we pop the leftmost element from the queue.
+5. We check if the current node's value is within the valid range (left < node.val < right). If it is not, we return False.
+6. If the current node has a left child, we append it to the queue with an updated valid range (left, node.val). Similarly, if it has a right child, we append it with the range (node.val, right).
+7. If we finish processing all nodes without finding any violations of the BST properties, we return True.
+8. The example usage constructs a simple binary tree and checks if it is a valid BST, printing the result.
+"""

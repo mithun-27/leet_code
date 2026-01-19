@@ -30,6 +30,9 @@ inorder is guaranteed to be the inorder traversal of the tree."""
 #         self.val = val
 #         self.left = left
 #         self.right = right
+from logging import root
+
+
 class Solution:
     def buildTree(self, preorder: List[int], inorder: List[int]) -> Optional[TreeNode]:
         head = TreeNode(None)
@@ -52,3 +55,15 @@ class Solution:
                 j += 1
         
         return head.right
+
+#example usage
+solution = Solution()   
+preorder = [3,9,20,15,7]
+inorder = [9,3,15,20,7]
+tree = solution.buildTree(preorder, inorder)
+root.right = TreeNode(4)
+k = 1
+solution = Solution()
+result = solution.kthSmallest(root, k)
+print(result)  # Output: 1
+"""

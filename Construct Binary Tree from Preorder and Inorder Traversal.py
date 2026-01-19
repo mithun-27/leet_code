@@ -66,4 +66,16 @@ k = 1
 solution = Solution()
 result = solution.kthSmallest(root, k)
 print(result)  # Output: 1
-"""
+
+"""wlakthrough
+1. Given two integer arrays preorder and inorder where preorder is the preorder traversal of a binary tree and inorder is the inorder traversal of the same tree, construct and return the binary tree.
+2. We define a TreeNode class to represent each node in the binary tree.
+3. We create a Solution class with a method buildTree that takes the preorder and inorder lists as input.
+4. We initialize a dummy head node and set curr to point to it. We also initialize indices i and j to 0, and n to the length of the preorder list.
+5. We use a while loop to iterate through the preorder and inorder lists until we have processed all elements.
+6. Inside the loop, we create a new node with the current value from the preorder list and attach it to the right of the current node. We then move curr to this new node and increment i.
+7. We then enter another while loop to create left children for the current node until we reach the value that matches the current value in the inorder list.
+8. After processing the left children, we increment j and enter another while loop to backtrack through the tree until we find a node whose right child matches the current value in the inorder list.
+9. Finally, we return the right child of the dummy head node, which is the root
+of the constructed binary tree.
+10. The example usage demonstrates how to use the buildTree method to construct a binary tree from given preorder and inorder lists."""

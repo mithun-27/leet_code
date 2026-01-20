@@ -51,3 +51,21 @@ class Solution:
 
         dfs(root)
         return res[0]
+    
+#example usage
+solution = Solution()   
+root = [1,2,3]
+print(solution.maxPathSum(root))  # Output: 6
+inorder = [9,3,15,20,7]
+print(solution.buildTree(preorder, inorder))  # Output: [3,9,20,null,null,15,7]
+inorder = [9,3,15,20,7]
+print(solution.buildTree(preorder, inorder))  # Output: [3,9,20,null,null,15,7]
+
+"""walkthrough
+1. We define a helper function `dfs` that computes the maximum path sum for each subtree rooted at the given node.
+2. For each node, we recursively compute the maximum path sums of its left and right subtrees.
+3. We ignore negative path sums by taking the maximum of the computed sums and 0.
+4. We update the global maximum path sum (`res[0]`) by considering the path that passes through the current node and both its left and right children.
+5. Finally, we return the maximum path sum found during the traversal.
+6. The overall time complexity is O(N), where N is the number of nodes in the tree, since we visit each node exactly once.
+7. The space complexity is O(H), where H is the height of the tree, due to the recursion stack."""

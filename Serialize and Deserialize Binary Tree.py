@@ -75,3 +75,16 @@ serialized = codec.serialize(root)
 print(serialized)  # Output: "1,2,3,N,N,4,5"
 deserialized = codec.deserialize(serialized)
 print(deserialized)  # Output: [1,2,3,null,null,4,5]
+
+"""walkthrough
+1. Serialization:
+   - We use a breadth-first search (BFS) approach to traverse the tree level by level.
+   - We use a queue to keep track of nodes to be processed.
+   - For each node, we append its value to the result list. If a node is null, we append "N" to represent null.
+   - Finally, we join the result list into a single string separated by commas.
+2. Deserialization:
+   - We split the serialized string by commas to get the list of values.
+   - We create the root node from the first value and use a queue to reconstruct the tree level by level.
+   - For each node, we check the next two values in the list to create its left and right children if they are not "N".
+   - We continue this process until all values are processed, resulting in the original tree structure.
+"""

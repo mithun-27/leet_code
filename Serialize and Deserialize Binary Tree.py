@@ -67,3 +67,11 @@ class Codec:
                 queue.append(node.right)
             index += 1
         return root
+
+#example usage
+codec = Codec()
+root = [1,2,3,None,None,4,5]
+serialized = codec.serialize(root)
+print(serialized)  # Output: "1,2,3,N,N,4,5"
+deserialized = codec.deserialize(serialized)
+print(deserialized)  # Output: [1,2,3,null,null,4,5]

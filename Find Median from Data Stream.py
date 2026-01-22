@@ -59,3 +59,20 @@ class MedianFinder:
         elif len(self.large) > len(self.small):
             return self.large[0]
         return (-1 * self.small[0] + self.large[0]) / 2.0
+
+#example usage
+medianFinder = MedianFinder()
+medianFinder.addNum(1)
+medianFinder.addNum(2)
+print(medianFinder.findMedian())  # return 1.5
+medianFinder.addNum(3)
+print(medianFinder.findMedian())  # return 2.0
+
+"""walkthrough
+1. We maintain two heaps: a max-heap (small) for the lower half of the numbers and a min-heap (large) for the upper half.
+2. When adding a number, we decide which heap to push it into based on its value.
+3. After adding, we ensure that the heaps are balanced in size (the size difference should not exceed 1).
+4. To find the median, we check the sizes of the heaps:
+   - If one heap has more elements, the median is the root of that heap.
+   - If both heaps are of equal size, the median is the average of the roots of both heaps.
+"""

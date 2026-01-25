@@ -66,4 +66,17 @@ word2 = "SEE"
 word3 = "ABCB"
 print(solution.exist(board, word1))  # Output: True
 print(solution.exist(board, word2))  # Output: True
-print(solution.exist(board, word3))  # Output: False
+print(solution.exist(board, word3))  # Output: False    
+
+"""walkthrough
+1. Define the exist method that takes a 2D board and a word as input.
+2. Get the number of rows and columns in the board. 
+3. Define a nested dfs function that performs depth-first search to find the word in the board.
+4. In the dfs function, check if the current index i is equal to the length of the word. If so, return True.
+5. Check if the current position (r, c) is out of bounds or if the character at board[r][c] does not match the current character in the word or if the cell has already been visited (marked as '#'). If any of these conditions are true, return False.
+6. Mark the current cell as visited by setting board[r][c] to '#'.
+7. Recursively call dfs for the four adjacent cells (down, up, right, left) and increment the index i by 1.
+8. After exploring all four directions, restore the original character in board[r][c].
+9. Iterate through each cell in the board and call the dfs function starting from that cell. If dfs returns True, return True from the exist method.
+10. If no starting cell leads to finding the word, return False.
+"""

@@ -57,3 +57,13 @@ class Solution:
                 if dfs(r, c, 0):
                     return True
         return False
+    
+#example usage
+solution = Solution()
+board = [["A","B","C","E"],["S","F","C","S"],["A","D","E","E"]]
+word1 = "ABCCED"
+word2 = "SEE"
+word3 = "ABCB"
+print(solution.exist(board, word1))  # Output: True
+print(solution.exist(board, word2))  # Output: True
+print(solution.exist(board, word3))  # Output: False

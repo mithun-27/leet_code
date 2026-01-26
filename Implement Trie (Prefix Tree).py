@@ -77,3 +77,14 @@ print(trie.search("app"))     # return False
 print(trie.startsWith("app")) # return True
 trie.insert("app")
 print(trie.search("app"))     # return True
+
+
+"""walkthrough
+1. We define a Trie class with an initializer that sets up an empty root dictionary.
+2. The insert method adds a word to the trie by iterating through each letter and creating nested dictionaries as needed. A special character '*' is used to mark the end of a word.
+3. The search method checks if a word exists in the trie by traversing through the letters. It returns True if the end marker '*' is found after traversing all letters.4. The startsWith method checks if any word in the trie starts with a given prefix by traversing through the letters of the prefix. It returns True if all letters are found.
+5. Example usage demonstrates inserting words and searching for them in the trie.
+Example 3:  
+Input: board = [["A","B","C","E"],["S","F","C","S"],["A","D","E","E"]], word = "ABCB"
+Output: false
+"""

@@ -98,3 +98,11 @@ trie.startsWith("app") # return True
 print(trie.search("app"))     # return False
 print(trie.startsWith("app")) # return True
 print(trie.startsWith("app")) # return True
+
+"""walkthrough
+1. **TrieNode and Trie Classes**: We define a `TrieNode` class to represent each node in the Trie, which contains a dictionary of children and a boolean flag to indicate if it's the end of a word. The `Trie` class has methods to insert words into the Trie.
+2. **Inserting Words**: The `insert` method of the `Trie` class adds each word character by character, creating new nodes as necessary.
+3. **Finding Words on the Board**: The `findWords` method initializes the Trie with the given words and sets up a backtracking function to explore the board.
+4. **Backtracking Function**: The `backtrack` function explores all possible paths from a given cell, checking if the current path forms a word in the Trie. It uses a set to keep track of visited cells to avoid revisiting them in the same path.
+5. **Starting the Search**: The main loop iterates through each cell in the board, starting the backtracking process if the cell's character is a child of the root Trie node.
+"""

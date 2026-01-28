@@ -81,3 +81,17 @@ class Solution:
                             islands -= 1
 
         return islands
+    
+#example usage
+Solution().numIslands([["1","1","0","0","0"],
+                        ["1","1","0","0","0"],
+                        ["0","0","1","0","0"],
+                        ["0","0","0","1","1"]])
+
+"""walkthrough:
+1. We define a DSU (Disjoint Set Union) class to manage the connected components of the grid.
+2. The DSU class has methods for finding the parent of a node and for unioning two nodes.
+3. In the Solution class, we initialize the DSU with the total number of cells in the grid.
+4. We define a helper function index to convert 2D grid coordinates to a 1D index.
+5. We iterate through each cell in the grid. If we find a '1' (land), we increment the island count and check its adjacent cells. If an adjacent cell is also land, we union them in the DSU and decrement the island count.    
+6. Finally, we return the total number of islands found in the grid."""

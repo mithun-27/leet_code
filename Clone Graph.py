@@ -88,3 +88,15 @@ class Solution:
 #example usage
 Solution().cloneGraph(Node(1, [Node(2), Node(4)]))  # Example call to the function      
 Solution().cloneGraph(None)  # Example call with None input 
+
+"""walkthrough
+1. Check if the input node is None. If it is, return None since there's nothing to clone.
+2. Create a dictionary oldToNew to map each original node to its cloned counterpart.
+3. Initialize the mapping for the input node by creating a new Node with the same value.
+4. Use a queue (deque) to perform a breadth-first search (BFS) starting from the input node.
+5. While the queue is not empty, do the following:
+   a. Dequeue the front node (cur) from the queue.
+   b. Iterate through each neighbor (nei) of the current node.
+   c. If the neighbor has not been cloned yet (not in oldToNew), create a new Node for it, add it to the mapping, and enqueue it for further exploration.
+   d. Append the cloned neighbor to the neighbors list of the cloned current node.
+6. After processing all nodes, return the cloned node corresponding to the input node from the oldToNew mapping."""

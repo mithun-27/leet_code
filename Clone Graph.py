@@ -60,6 +60,12 @@ class Node:
         self.neighbors = neighbors if neighbors is not None else []
 """
 
+from xml.dom import Node
+
+
+from torch import Node
+
+
 class Solution:
     def cloneGraph(self, node: Optional['Node']) -> Optional['Node']:
         if not node:
@@ -78,3 +84,7 @@ class Solution:
                 oldToNew[cur].neighbors.append(oldToNew[nei])
 
         return oldToNew[node]
+    
+#example usage
+Solution().cloneGraph(Node(1, [Node(2), Node(4)]))  # Example call to the function      
+Solution().cloneGraph(None)  # Example call with None input 

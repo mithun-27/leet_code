@@ -51,3 +51,35 @@ class Solution:
                     q.append(nei)
 
         return finish == numCourses
+
+#example usage
+Solution().canFinish(2, [[1,0]])  # Example call to the function      
+Solution().canFinish(2, [[1,0],[0,1]])  # Example call to the function
+"""Example 1:
+Input: adjList = [[2,4],[1,3],[2],[4],[]]
+Output: [[2,4],[1,3],[2],[4],[]]
+Explanation: There are 5 nodes in the graph. The node with val = 1 has two neighbors: 2 and 4. The node with val = 2 has one neighbor: 3. The node with val = 3 has one neighbor: 4. The node with val = 4 has no neighbors. The node with val = 5 has no neighbors. 
+The graph looks like this: 1 -- 2
+|     |         3       4                                                           
+|     |         |       |
+5 ----         4       5
+Example 2:
+Input: adjList = [[]]
+Output: [[]]
+Explanation: Note that the input contains one empty list. The graph consists of only one node with val = 1 and it does not have any neighbors."""
+
+"""walkthrough
+1. Check for an empty input graph. If the input node is None, return None.
+2. Create a mapping (dictionary) to keep track of the original nodes and their corresponding cloned nodes.
+3. Initialize a queue for BFS traversal and add the starting node to it.
+4. While the queue is not empty, do the following:
+   a. Dequeue a node from the front of the queue.
+   b. For each neighbor of the current node:
+      i. If the neighbor has not been cloned yet (not in the mapping), create a clone and add it to the mapping and the queue.
+      ii. Add the cloned neighbor to the neighbors list of the cloned current node.
+      iii. Continue this process until all nodes have been cloned.
+5. Finally, return the cloned node corresponding to the input node from the mapping.
+   d. Append the cloned neighbor to the neighbors list of the cloned current node.
+6. Finally, return the cloned node corresponding to the input node from the mapping.
+7. The BFS ensures that all nodes are visited and cloned, maintaining the original graph structure in the cloned graph.
+"""

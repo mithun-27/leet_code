@@ -41,3 +41,12 @@ class Solution:
 Solution().rob([1,2,3,1])  # Example call to the function
 Solution().rob([2,7,9,3,1])  # Example call to the function
 print(Solution().rob([2,1,1,2]))  # Example call to the function         4
+
+"""walkthrough
+1. We define a class Solution with a method rob that takes a list of integers nums as input.
+2. We initialize two variables rob1 and rob2 to keep track of the maximum amount of money that can be robbed up to the previous two houses. 
+3. We iterate through each house's amount of money in nums.
+4. For each house, we calculate the maximum amount of money that can be robbed by either robbing the current house (num + rob1) or skipping it (rob2).  
+5. We update rob1 to be the previous rob2 and rob2 to be the newly calculated maximum amount.
+6. Finally, we return rob2, which contains the maximum amount of money that can be robbed without alerting the police.
+"""

@@ -48,3 +48,10 @@ Solution().rob([1,2,3,1])  # Example call to the function
 print(Solution().rob([1,2,3]))  # Example call to the function
 # Output: 3
 
+"""walkthrough
+1. We define a class Solution with a method rob that takes a list of integers nums as input.
+2. Since the houses are arranged in a circle, we cannot rob both the first and last houses. Therefore, we consider two scenarios: robbing from the second house to the last house (nums[1:]) and robbing from the first house to the second-to-last house (nums[:-1]). We also consider the case where we only rob the first house (nums[0]).
+3. We use a helper method to calculate the maximum amount of money that can be robbed for each of these scenarios.
+4. The helper method uses a similar approach as in the linear house robber problem, maintaining two variables rob1 and rob2 to keep track of the maximum amounts that can be robbed up to the previous two houses. 
+5. Finally, we return the maximum amount from the three scenarios.
+"""

@@ -41,3 +41,10 @@ class Solution:
             rob1 = rob2
             rob2 = newRob
         return rob2
+    
+#example usage
+Solution().rob([2,3,2])  # Example call to the function
+Solution().rob([1,2,3,1])  # Example call to the function
+print(Solution().rob([1,2,3]))  # Example call to the function
+# Output: 3
+

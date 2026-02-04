@@ -39,3 +39,8 @@ class Solution:
         resLen, center_idx = max((v, i) for i, v in enumerate(p))
         resIdx = (center_idx - resLen) // 2
         return s[resIdx : resIdx + resLen]
+    
+#example usage
+print(Solution().longestPalindrome("babad"))  # Example call to the function
+print(Solution().longestPalindrome("cbbd"))  # Example call to the function
+# Output: "bab" or "aba"

@@ -44,3 +44,13 @@ class Solution:
 print(Solution().longestPalindrome("babad"))  # Example call to the function
 print(Solution().longestPalindrome("cbbd"))  # Example call to the function
 # Output: "bab" or "aba"
+
+"""walkthrough
+1. We define a class Solution with a method longestPalindrome that takes a string s as input.
+2. Inside the method, we define a helper function manacher that implements Manacher's algorithm to find the lengths of palindromic substrings centered at each character in a transformed string.   
+3. The transformed string t is created by inserting '#' characters between each character of s and at the beginning and end. This helps to handle even-length palindromes uniformly.    
+4. We initialize an array p to store the lengths of palindromic substrings and two pointers l and r to keep track of the rightmost palindrome found so far. 
+5. We iterate through each character in the transformed string t, updating the lengths of palindromic substrings in p using previously computed values and expanding around the center as needed.   
+6. After computing the array p, we find the maximum length of the palindrome and its center index.  
+7. We calculate the starting index of the longest palindromic substring in the original string s and return the substring.
+"""

@@ -52,3 +52,13 @@ print(Solution().countSubstrings("abc"))  # Example call to the function
 print(Solution().countSubstrings("aaa"))  # Example call to the function
 # Output: 3
 # Output: 6
+
+"""walkthrough
+1. We define a class Solution with a method countSubstrings that takes a string s as input. 
+2. Inside the method, we define a helper function manacher that implements Manacher's algorithm to find the lengths of palindromic substrings centered at each character in a transformed string.   
+3. The transformed string t is created by inserting '#' characters between each character of s and at the beginning and end. This helps to handle even-length palindromes uniformly.    
+4. We initialize an array p to store the lengths of palindromic substrings and two pointers l and r to keep track of the rightmost palindrome found so far. 
+5. We iterate through each character in the transformed string t, updating the lengths of palindromic substrings in p using previously computed values and expanding around the center as needed.   
+6. After computing the array p, we iterate through it and for each value i, we add (i + 1) // 2 to the result. This is because each palindrome of length i contributes (i + 1) // 2 palindromic substrings to the count.    
+7. Finally, we return the total count of palindromic substrings.
+"""

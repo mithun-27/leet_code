@@ -46,3 +46,9 @@ class Solution:
         for i in p:
             res += (i + 1) // 2
         return res
+    
+#example usage
+print(Solution().countSubstrings("abc"))  # Example call to the function
+print(Solution().countSubstrings("aaa"))  # Example call to the function
+# Output: 3
+# Output: 6

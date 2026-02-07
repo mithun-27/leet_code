@@ -89,3 +89,12 @@ print(Solution().numDecodings("06"))  # Example call to the function
 # Output: 2
 # Output: 3
 # Output: 0
+
+"""walkthrough
+1. We define a class Solution with a method numDecodings that takes a string s as input.
+2. We initialize three variables dp, dp1, and dp2 to keep track of the number of ways to decode the string at different positions. dp1 is initialized to 1 because there is one way to decode an empty string.  
+3. We iterate through the string s in reverse order, starting from the last character. For each character, we check if it is '0'. If it is, we set dp to 0 because '0' cannot be decoded on its own. Otherwise, we set dp to dp1, which represents the number of ways to decode the substring starting from the next character.
+4. We then check if the current character and the next character form a valid two-digit code (i.e., "10" to "26"). If they do, we add dp2 to dp, which represents the number of ways to decode the substring starting from the character after the next character.      
+5. Finally, we update dp, dp1, and dp2 for the next iteration. dp becomes 0, dp1 becomes the current dp, and dp2 becomes the previous dp1.  
+6. After the loop, we return dp1, which contains the total number of ways to decode the entire string s.    
+"""

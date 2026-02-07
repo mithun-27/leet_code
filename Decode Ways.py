@@ -82,3 +82,10 @@ class Solution:
             dp, dp1, dp2 = 0, dp, dp1
         return dp1
 
+#example usage
+print(Solution().numDecodings("12"))  # Example call to the function    
+print(Solution().numDecodings("226"))  # Example call to the function
+print(Solution().numDecodings("06"))  # Example call to the function    
+# Output: 2
+# Output: 3
+# Output: 0

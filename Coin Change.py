@@ -68,3 +68,14 @@ solution = Solution()
 print(solution.coinChange([1,2,5], 11)) # Output: 3
 print(solution.coinChange([2], 3)) # Output: -1
 print(solution.coinChange([1], 0)) # Output: 0
+
+"""walkthrough
+1. We start by checking if the amount is 0. If it is, we can return 0 immediately since no coins are needed to make up the amount.
+2. We initialize a queue (q) to perform a breadth-first search (BFS) and a list (seen) to keep track of the amounts we have already visited. We mark the starting point (0) as seen.
+3. We initialize a variable (res) to keep track of the number of coins used.
+4. We enter a while loop that continues until the queue is empty. Inside the loop, we increment the res variable to represent the number of coins used in the current level of BFS.
+5. We iterate through the current level of the queue, popping each amount (cur) from the queue. For each amount, we iterate through the list of coins and calculate the next amount (nxt) by adding the coin value to the current amount.
+6. If the next amount (nxt) is equal to the target amount, we return the current number of coins (res) as the result.
+7. If the next amount exceeds the target amount or has already been seen, we skip it. Otherwise, we mark it as seen and add it to the queue for further exploration.
+8. If we exhaust the queue without finding the target amount, we return -1 to indicate that it is not possible to make up the amount with the given coins.      
+"""

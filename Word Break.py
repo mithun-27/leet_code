@@ -76,3 +76,8 @@ class Solution:
                         break
 
         return dp[0]
+    
+#example usage
+print(Solution().wordBreak("leetcode", ["leet","code"]))  # Output: True    
+print(Solution().wordBreak("applepenapple", ["apple","pen"]))  # Output: True
+print(Solution().wordBreak("catsandog", ["cats","dog","sand","and","cat"]))  # Output: False

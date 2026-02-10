@@ -81,3 +81,14 @@ class Solution:
 print(Solution().wordBreak("leetcode", ["leet","code"]))  # Output: True    
 print(Solution().wordBreak("applepenapple", ["apple","pen"]))  # Output: True
 print(Solution().wordBreak("catsandog", ["cats","dog","sand","and","cat"]))  # Output: False
+
+"""walkthrough
+1. Define a TrieNode class to represent each node in the trie, which contains a dictionary of children and a boolean is_word to indicate if the node represents the end of a word.  
+2. Define a Trie class to manage the trie structure, with methods to insert words and search for words in the trie.
+3. In the Solution class, create a trie and insert all words from the wordDict into it.
+4. Initialize a dynamic programming array dp of size len(s) + 1, where dp[i] indicates whether the substring s[i:] can be segmented into words from the dictionary. Set dp[len(s)] to True since an empty string can be segmented.  
+5. Calculate the maximum length of words in the wordDict to optimize the search process.
+6. Iterate through the string s from the end to the beginning, and for each index i, check substrings of length up to t (the maximum word length) starting from i. If a substring s[i:j+1] is found in the trie, set dp[i] to dp[j + 1]. If dp[i] becomes True, break out of the inner loop since we found a valid segmentation starting at index i.    
+7. Finally, return dp[0] which indicates whether the entire string s can be segmented into words from the dictionary.
+8. The time complexity of this algorithm is O(n * m) where n is the length of the string s and m is the maximum length of words in the wordDict. The space complexity is O(n) for the dp array and O(k * l) for the trie, where k is the number of words in the wordDict and l is the average length of those words.
+"""

@@ -49,3 +49,12 @@ solution = Solution()
 print(solution.lengthOfLIS([10,9,2,5,3,7,101,18]))  # Output: 4
 print(solution.lengthOfLIS([0,1,0,3,2,3]))  # Output: 4
 print(solution.lengthOfLIS([7,7,7,7,7,7,7]))  # Output: 1   
+
+"""walkthrough
+1. Initialize an empty list dp to store the longest increasing subsequence found so far. Append the first element of nums to dp and set LIS (the length of the longest increasing subsequence) to 1.
+2. Iterate through the nums array starting from the second element. For each element nums[i], compare it with the last element in dp. If nums[i] is greater than the last element in dp, it means we can extend the longest increasing subsequence, so we append nums[i] to dp and increment LIS by 1.      
+3. If nums[i] is not greater than the last element in dp, we need to find the correct position in dp to replace an element with nums[i]. We use the bisect_left function from the bisect module to find the index idx where nums[i] should be inserted to maintain the sorted order of dp. We then replace the element at index idx in dp with nums[i]. This step ensures that we are always maintaining the longest increasing subsequence found so far.       
+4. After iterating through all elements in nums, we return the value of LIS, which represents the length of the longest strictly increasing subsequence.    
+5. The time complexity of this algorithm is O(n log(n)) due to the use of binary search (bisect_left) for finding the correct position in dp, and the space complexity is O(n) for storing the longest increasing subsequence in dp.        
+6. The bisect_left function is used to find the insertion point for nums[i] in dp while maintaining the sorted order. If nums[i] is already present in dp, bisect_left will return the index of the first occurrence of nums[i], which allows us to replace it with the new value if necessary. This helps in maintaining the longest increasing subsequence efficiently.
+"""

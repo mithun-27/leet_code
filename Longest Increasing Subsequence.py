@@ -43,3 +43,9 @@ class Solution:
             dp[idx] = nums[i]
 
         return LIS
+
+#example usage
+solution = Solution()   
+print(solution.lengthOfLIS([10,9,2,5,3,7,101,18]))  # Output: 4
+print(solution.lengthOfLIS([0,1,0,3,2,3]))  # Output: 4
+print(solution.lengthOfLIS([7,7,7,7,7,7,7]))  # Output: 1   

@@ -1,4 +1,4 @@
-Given an integer array nums, return the length of the longest strictly increasing subsequence.
+"""Given an integer array nums, return the length of the longest strictly increasing subsequence.
 
  
 
@@ -23,4 +23,4 @@ Constraints:
 -104 <= nums[i] <= 104
  
 
-Follow up: Can you come up with an algorithm that runs in O(n log(n)) time complexity?
+Follow up: Can you come up with an algorithm that runs in O(n log(n)) time complexity?"""

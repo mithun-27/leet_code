@@ -40,3 +40,9 @@ class Solution:
             j += 1
 
         return res
+    
+#example usage
+solution = Solution()   
+print(solution.uniquePaths(3, 7))  # Output: 28
+print(solution.uniquePaths(3, 2))  # Output: 3  
+print(solution.uniquePaths(1, 5))  # Output: 1

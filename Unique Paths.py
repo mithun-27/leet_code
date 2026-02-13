@@ -46,3 +46,14 @@ solution = Solution()
 print(solution.uniquePaths(3, 7))  # Output: 28
 print(solution.uniquePaths(3, 2))  # Output: 3  
 print(solution.uniquePaths(1, 5))  # Output: 1
+
+"""walkthrough
+1. The function uniquePaths takes two integers m and n as input, representing the dimensions of the grid.
+2. If either m or n is 1, it means there is only one path from the top-left corner to the bottom-right corner, so we return 1.
+3. If m is less than n, we swap m and n to ensure that m is always greater than or equal to n. This is done to optimize the calculation of the number of unique paths.
+4. We initialize two variables, res and j, to 1. res will store the result of the calculation, and j will be used to keep track of the denominator in the calculation.
+5. We use a for loop to iterate from m to m + n - 1.    
+6. In each iteration, we multiply res by i (the current value in the loop) and then divide res by j (the current value of j). This is equivalent to calculating the binomial coefficient C(m + n - 2, m - 1) or C(m + n - 2, n - 1), which gives us the number of unique paths from the top-left corner to the bottom-right corner.
+7. After the loop, we return the value of res, which represents the number of unique paths from the top-left corner to the bottom-right corner.
+8. The time complexity of this algorithm is O(m + n) due to the loop that iterates from m to m + n - 1, and the space complexity is O(1) since we are using only a constant amount of extra space for the variables res and j.
+""" 

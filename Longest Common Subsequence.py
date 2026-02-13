@@ -48,3 +48,9 @@ class Solution:
                 prev = temp
 
         return dp[0]
+    
+#example usage
+solution = Solution()   
+print(solution.longestCommonSubsequence("abcde", "ace"))  # Output: 3
+print(solution.longestCommonSubsequence("abc", "abc"))  # Output: 3
+print(solution.longestCommonSubsequence("abc", "def"))  # Output: 0 

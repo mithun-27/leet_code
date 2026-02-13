@@ -54,3 +54,16 @@ solution = Solution()
 print(solution.longestCommonSubsequence("abcde", "ace"))  # Output: 3
 print(solution.longestCommonSubsequence("abc", "abc"))  # Output: 3
 print(solution.longestCommonSubsequence("abc", "def"))  # Output: 0 
+
+"""walkthrough
+1. The function longestCommonSubsequence takes two strings text1 and text2 as input.
+2. If the length of text1 is less than the length of text2, we swap them to ensure that text1 is always the longer string. This is done to optimize the space complexity of the algorithm.
+3. We initialize a list dp of size len(text2) + 1 with all elements set to 0. This list will be used to store the lengths of the longest common subsequences for different substrings of text2. The extra element at the end is used to handle the case when we are comparing with an empty substring of text2. 
+4. We use a nested loop to iterate through the characters of text1 and text2 in reverse order. The outer loop iterates through text1 from the last character to the first, and the inner loop iterates through text2 from the last character to the first.      
+5. Inside the inner loop, we store the current value of dp[j] in a temporary variable temp before updating it. This is because we need to use the previous value of dp[j] (which represents the longest common subsequence length for the substring of text2 starting from index j) when calculating the new value of dp[j].    
+6. If the characters text1[i] and text2[j] are the same, it means we can extend the longest common subsequence found so far by 1, so we set dp[j] to 1 + prev (where prev is the value of dp[j + 1] from the previous iteration of the inner loop). 
+7. If the characters are different, we take the maximum of dp[j] and dp[j + 1] to determine the longest common subsequence length for the current substrings of text1 and text2.    
+8. After the inner loop, we update prev to temp to prepare for the next iteration of the outer loop.    
+9. After the outer loop completes, dp[0] will contain the length of the longest common subsequence for the entire strings text1 and text2, which we return as the result.   
+10. The time complexity of this algorithm is O(m * n), where m and n are the lengths of text1 and text2, respectively, due to the nested loops. The space complexity is O(n) since we are using a single list dp of size len(text2) + 1 to store the intermediate results.
+"""
